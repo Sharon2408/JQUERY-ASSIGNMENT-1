@@ -1,0 +1,6 @@
+SELECT * FROM table_name WHERE SALARY BETWEEN 20000 AND 50000;
+SELECT * FROM table_name WHERE FIRST_NAME LIKE '%i';
+SELECT DISTINCT SALARY FROM table_name;
+SELECT * FROM table_name WHERE DEPARTMENT IN ('Developer', 'Designer');
+SELECT * FROM table_name WHERE Trainee_ID < 5;
+SELECT * FROM table_name WHERE Trainee_ID BETWEEN 6 AND 15;
