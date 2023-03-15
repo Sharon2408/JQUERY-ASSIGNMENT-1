@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <style>
         #box {
             width: fit-content;
             border-radius: 20px;
             text-align: center;
-            font-family: fantasy;
+            font-family: cursive;
             font-size: 20px;
             color: #2b91e4;
             margin-left: 430px;
@@ -25,7 +27,7 @@
             border-radius: 20px;
             height: 45px;
             width: 300px;
-            font-family: fantasy;
+            font-family: cursive;
             font-size: 15px;
             padding-left: 30px;
             margin-left: 50px;
@@ -33,32 +35,76 @@
 
         button {
             width: 100px;
-            height: 30px;
-            font-family: fantasy;
+            height: 50px;
+            font-family: cursive;
             font-size: 20px;
             color: #2b91e4;
+            border-radius: 20px;
+        }
+
+        .emsghidden {
+            font-family: cursive;
+            font-size: 10px;
+            color: #2b91e4;
+
         }
     </style>
+    <script>
+        $(document).ready(function () {
+    $("#form").validate({
+        rules: {
+            'Name': {
+                required: true,
+                minlength: 3
+               
+            },
+            'Pwd': {
+                required: true,
+                minlength: 8
+                
+            },
+            
+            'Email': {
+                required: true,
+                email: true,
+            },
+            'Mobile': {
+                required: true,
+                minlength: 10
+            },
+        },
+        messages: {
+            'Name': "<br>"+"Please enter a valid First Name.",
+            'Pwd': "<br>"+ "Please enter the Password with atleast 8 charachters",
+            'Email': "<br>"+ "Please enter Email in proper format.",
+            'Mobile':"<br>"+ "Please enter a valid Mobile Number.",
+            
+            
+        }
+    });
+});
+    </script>
 </head>
 
 <body>
-    <form action="" id="form">
+    <form action="" id="form" >
         <fieldset id="box">
             <legend>JQUERY VALIDATION</legend>
             <label>Username</label>
-            <input required type="text" placeholder="Your Name">
+            <input required name="Name" type="text" placeholder="Your Name">
             <br><br><br>
             <label for="">Password</label>
-            <input required type="password">
+            <input required name="Pwd" placeholder="*********" type="password">
             <label for=""></label>
             <br><br><br>
             <label for="">Email</label>
-            <input required type="email" placeholder="sha123@xyx.com">
+            <input required name="Email" type="email" placeholder="sha123@xyx.com">
             <br><br><br>
             <label for="">Mobile No</label>
-            <input required type="text" placeholder="123-456-7890">
+            <input required name="Mobile" type="text" placeholder="123-456-7890">
             <br><br><br>
             <button type="submit">Login</button>
+            <button type="reset">Cancel</button>
         </fieldset>
     </form>
 </body>
