@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <title>JQuery-FormValidation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="" method="post" class="login">
+
+        <label for="mail">Email</label><br>
+        <input type="email" id="email" name="email" ><br><br>
+        <label for="password"> Password</label><br>
+        <input type="password" id="passwd" name="passwd" ><br><br>
+        <label for="mobile num"> Phone number</label><br>
+        <input type="text" id="number" name="number" ><br><br>
+        <input type="submit" id="button" name="button">
+
+    </form>
+    <script>
+        $(document).ready(function () {
+            $(".login").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        pattern: /^[a-zA-Z0-9]+@g2techsoft.com$/
+                    },
+                    passwd: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 15,
+                        pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#!%^&*])[A-Za-z\d@$#!%^&*]{6,20}$/
+                    },
+
+                    number: {
+                        required: true,
+                        pattern: /^[0-9]{11}$/
+                    }
+                },
+                messages: {
+                    email: {
+                        required: "Enter a valid mail",
+                        pattern: "The mail should end with @g2tsolutions.com"
+                    },
+                    passwd: {
+                        required: "Enter the Required Password",
+                        minlength: " must contain minimum 6 characters",
+                        maxlength: "must contain maximum  20 characters",
+                        pattern: "Atleast one lowercase letter,One uppercase letter,one numeric digit and one special character."
+                    },
+
+                    number: {
+                        required: "Enter 11  numbers",
+                        pattern: "Maximum length 11"
+                    }
+
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
